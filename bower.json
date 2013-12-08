@@ -1,0 +1,23 @@
+{
+  "name": "ngGoogleMap",
+  "version": "0.0.1",
+  "authors": [
+    "SparrowJang <sparrow.jang@gmail.com>"
+  ],
+  "description": "This is google map for angular.",
+  "main": "public/src/ngGoogleMap.js",
+  "keywords": [
+    "google map"
+  ],
+  "dependencies":{
+    "angular": "~1.2.4"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
