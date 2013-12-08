@@ -8,8 +8,22 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 	<script type="text/javascript" src="/src/ngGoogleMap.js"></script>
 </head>
-<body ng-app="google.maps">
-	
+<body ng-app="google.maps" ng-controller="demoCtrl">
+	<div ng-google-map center="center" zoom="zoom" style="height:300px;width:400px;"></div>
+	<script type="text/javascript">
+
+		function demoCtrl( $scope, $timeout ){
+
+			$scope.zoom = 14;
+
+            $timeout(function(){
+
+				$scope.zoom = 15;
+                $scope.center = new google.maps.LatLng( 25.042749,121.525114 );
+            },1200);
+		}
+
+	</script>
 </body>
 </html>
 
