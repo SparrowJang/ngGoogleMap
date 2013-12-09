@@ -9,17 +9,25 @@
 	<script type="text/javascript" src="/src/ngGoogleMap.js"></script>
 </head>
 <body ng-app="google.maps" ng-controller="demoCtrl">
-	<div ng-google-map center="center" zoom="zoom" style="height:300px;width:400px;"></div>
+	<div ng-google-map center="center" markers="markers" zoom="zoom" style="height:300px;width:400px;"></div>
 	<script type="text/javascript">
 
 		function demoCtrl( $scope, $timeout ){
 
+            var marker = new google.maps.Marker( {position:new google.maps.LatLng( 25.042749,121.525114 )} );
+
 			$scope.zoom = 14;
+            $scope.markers = [];
+            $scope.markers.push( marker );
+
 
             $timeout(function(){
 
+                var marker = new google.maps.Marker( {position:new google.maps.LatLng( 25.041749,121.523114 )} );
+
 				$scope.zoom = 15;
                 $scope.center = new google.maps.LatLng( 25.042749,121.525114 );
+                $scope.markers.push( marker );
             },1200);
 		}
 

@@ -11,6 +11,11 @@
 
         return scope.$watch( name, func );
 
+      },
+
+      watchCollection:function( scope, name, func ){
+
+        return scope.$watchCollection( name, func );
       }
 
     };
@@ -34,6 +39,48 @@
 
         });
 
+      },
+
+      markers:function( scope, map ){
+
+        var hasOnMakrers = function( markers, marker ){
+
+          for ( var i in markers ) {
+
+            if ( markers[i] === marker ) return true;
+          }
+
+          return false;
+
+        };
+
+        var clearMarkers = function(){
+
+          var lastMarkers = scope.lastMarkers;
+
+          if ( lastMarkers )
+
+            for ( var i in lastMarkers )
+
+              if ( !hasOnMakrers( scope.markers, lastMarkers[i] ) ) {
+
+                lastMarkers[i].setMap( null );
+              }
+
+        };
+
+        return utils.watchCollection( scope, 'markers', function(){
+
+          var markers = scope.markers, lastMarkers = scope.lastMarkers;
+
+          clearMarkers();
+
+          if ( markers ) for ( var i in markers ) markers[i].setMap( map );
+
+          scope.lastMarkers = markers;
+
+        });
+
       }
     };
 
@@ -41,7 +88,8 @@
 
       scope:{
         "center":"=",
-        "zoom":"="
+        "zoom":"=",
+        "markers":"="
       },
 
       link:function( scope, elem, attrs, ctrl ){

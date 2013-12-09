@@ -35,7 +35,7 @@ angular.module( "app", [
 ]);
 ```
 
-> Optionally, specify `center` or `zoom`:
+> Optionally, specify `center` or `zoom` or `markers`:
 Set a zoom attribute.
 ```
 <div ng-google-map zoom="zoom" style="height:300px;width:400px;"></div>
@@ -45,6 +45,14 @@ Set a center attribute.
 ```
 <div ng-google-map center="center" style="height:300px;width:400px;"></div>
 $scope.center = new google.maps.LatLng( 25.042749, 121.525114 );
+```
+Add a markers array.
+```
+<div ng-google-map markers="markers" style="height:300px;width:400px;"></div>
+$scope.markers = [];
+$timeout(function(){
+  $scope.markers.push( marker );
+},1000);
 ```
 
 ##Demo
