@@ -55,6 +55,21 @@ $timeout(function(){
 },1000);
 ```
 
+####Use the map event
+
+Set a `map-events` model.
+```
+<div ng-google-map map-events="mapEvents"></div>
+```
+Setup events.
+```
+$scope.mapEvents = {
+  click:function(){
+    console.log( "click" );
+  }
+};
+```
+
 ##Demo
  
 Clone this project.

@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/src/ngGoogleMap.js"></script>
 </head>
 <body ng-app="google.maps" ng-controller="demoCtrl">
-	<div ng-google-map center="center" markers="markers" zoom="zoom" style="height:300px;width:400px;"></div>
+	<div ng-google-map center="center" markers="markers" zoom="zoom" style="height:300px;width:400px;" map-events="mapEvents"></div>
 	<script type="text/javascript">
 
 		function demoCtrl( $scope, $timeout ){
@@ -20,6 +20,11 @@
             $scope.markers = [];
             $scope.markers.push( marker );
 
+            $scope.mapEvents = {
+				click:function(){
+	              console.log( arguments );
+				}
+            };
 
             $timeout(function(){
 

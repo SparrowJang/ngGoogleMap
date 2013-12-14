@@ -3,7 +3,7 @@
 
   angular.module( 'google.maps',[] ).
 
-  directive( 'ngGoogleMap', function(){
+  directive( 'ngGoogleMap', [ function(){
 
     var utils = {
 
@@ -89,7 +89,8 @@
       scope:{
         "center":"=",
         "zoom":"=",
-        "markers":"="
+        "markers":"=",
+        "mapEvents":"="
       },
 
       link:function( scope, elem, attrs, ctrl ){
@@ -106,6 +107,15 @@
 
           map = new google.maps.Map( elem[0], options );
 
+  
+          var events = scope.mapEvents;
+  
+          angular.forEach( events, function( event, eventName ){
+  
+            google.maps.event.addListener( map, eventName, event );
+  
+          });
+
           for ( var name in mapWatchers ) clearListeners.push( mapWatchers[ name ]( scope, map ) );
 
         }));
@@ -115,12 +125,13 @@
 
           for ( var i in clearListeners ) clearListeners[i]();
 
+          google.maps.event.clearInstanceListeners( map );
         });
 
       }
     };
 
-  });
+  }]);
 
 })( angular );
 
