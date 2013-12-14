@@ -1,7 +1,9 @@
 
 (function( angular ){
 
-  angular.module( 'google.maps',[] ).
+  'use strict';
+
+  angular.module( 'ngGoogleMap',[] ).
 
   directive( 'ngGoogleMap', [ function(){
 

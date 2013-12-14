@@ -31,7 +31,7 @@ bower install ngGoogleMap
 ####Setup a dependency of module
 ```
 angular.module( "app", [
-    "google.maps"
+    "ngGoogleMap"
 ]);
 ```
 
