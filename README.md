@@ -72,7 +72,7 @@ $scope.mapEvents = {
 
 ####Refresh this map
 
-Trigger a event by scope
+Trigger a event by scope.
 
 ```
 $scope.$broadcast( 'resize' );
