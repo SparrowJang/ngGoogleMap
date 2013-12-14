@@ -22,6 +22,20 @@
 
     };
 
+    var scopeEvents = {
+
+      resize:function( scope, map ){
+
+        var eventName = "resize";
+
+        return scope.$on( eventName, function(){
+
+          google.maps.event.trigger( map, eventName )
+
+        });
+      }
+    };
+
     var mapWatchers = {
 
       zoom:function( scope, map ){
@@ -119,6 +133,8 @@
           });
 
           for ( var name in mapWatchers ) clearListeners.push( mapWatchers[ name ]( scope, map ) );
+
+          for ( var name in scopeEvents ) clearListeners.push( scopeEvents[ name ]( scope, map ) )
 
         }));
 
