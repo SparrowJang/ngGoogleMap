@@ -33,6 +33,14 @@
           google.maps.event.trigger( map, eventName )
 
         });
+      },
+
+      bounds:function( scope, map ){
+
+        return scope.$on( 'bounds', function( $event, bounds ){
+
+          map.fitBounds( bounds );
+        });
       }
     };
 

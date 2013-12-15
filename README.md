@@ -70,12 +70,23 @@ $scope.mapEvents = {
 };
 ```
 
+##Events
+
+* resize
+* bounds
+
 ####Refresh this map
 
 Trigger a event by scope.
 
 ```
 $scope.$broadcast( 'resize' );
+```
+
+####Set a bounds by trigger
+
+```
+$scope.$broadcast( "bounds", bounds );
 ```
 
 ##Demo

@@ -37,7 +37,12 @@
 
             $timeout(function(){
 
+                var bounds = new google.maps.LatLngBounds();
+                bounds.extend( new google.maps.LatLng( 25.042749,121.525114 ) );
+                bounds.extend( new google.maps.LatLng( 25.041749,121.523114 ) );
+
                 $scope.$broadcast( "resize" );
+                $scope.$broadcast( "bounds", bounds );
             },3000);
 		}
 
