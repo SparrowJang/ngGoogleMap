@@ -3,32 +3,32 @@ ngGoogleMap
 
 An [Angularjs](http://angularjs.org/) module that is google map. It supports some center and zoom features.
 
-##Dependency
+## Dependency
 
 * angularjs
 * google map
 
-##Install
+## Install
 
 ```
 bower install ngGoogleMap
 ```
 
-##Usage
+## Usage
 
-####First,include some scripts
+#### First,include some scripts
 ```html
 <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 <script type="text/javascript" src="/src/ngGoogleMap.js"></script>
 ```
 
-####Create a google map
+#### Create a google map
 ```html
 <div ng-google-map style="height:300px;width:400px;"></div>
 ```
 
-####Setup a dependency of module
+#### Setup a dependency of module
 ```js
 angular.module( "app", [
     "ngGoogleMap"
@@ -55,7 +55,7 @@ $timeout(function(){
 },1000);
 ```
 
-####Use the map event
+#### Use the map event
 
 Set a `map-events` model.
 ```html
@@ -70,12 +70,12 @@ $scope.mapEvents = {
 };
 ```
 
-##Events
+## Events
 
 * resize
 * bounds
 
-####Refresh this map
+#### Refresh this map
 
 Trigger a event by scope.
 
@@ -83,13 +83,13 @@ Trigger a event by scope.
 $scope.$broadcast( 'resize' );
 ```
 
-####Set a bounds by trigger
+#### Set a bounds by trigger
 
 ```js
 $scope.$broadcast( "bounds", bounds );
 ```
 
-##Demo
+## Demo
  
 Clone this project.
  
